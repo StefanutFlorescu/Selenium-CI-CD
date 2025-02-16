@@ -12,8 +12,10 @@ public class SeleniumTests {
         String pageTitle = driver.getTitle();
         System.out.println("The title is: " + pageTitle);
 
-        assert pageTitle.equals("Google") : "Test failed! Expected title 'Google', but got '" + pageTitle + "'";
-
+        if (!pageTitle.equals("Google")) {
+            driver.quit();
+            throw new RuntimeException("Test failed! Expected title 'Google', but got '" + pageTitle + "'");
+        }
         driver.quit();
     }
 }
