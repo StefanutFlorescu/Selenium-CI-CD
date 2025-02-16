@@ -1,10 +1,12 @@
 package org.example;
 
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SeleniumTests {
-    public static void main(String[] args) {
+    @Test
+    public void testGoogleTitle() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Marius Florescu\\Downloads\\chromedriver-win64\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
@@ -16,6 +18,7 @@ public class SeleniumTests {
             driver.quit();
             throw new RuntimeException("Test failed! Expected title 'Google', but got '" + pageTitle + "'");
         }
+
         driver.quit();
     }
 }
